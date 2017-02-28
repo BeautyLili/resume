@@ -1,0 +1,35 @@
+﻿[
+	{
+		"category":"1",
+		"name":"四川理工学院",
+		"url":"http://www.ruiyantong.com/",
+		"image":"images/ruiyantong.png",
+		"time":"2011年-2015年",
+		"posts":"副班长",
+		"reportto":"",
+		"peoples":"",
+		"exp":"2010年2015年之间就读于四川理工学院-计算机学院-计算机与技术专业"
+	},
+	{
+		"category":"2",
+		"name":"杭州相芯科技有限公司",
+		"url":"http://27429425.b2b.11467.com/",
+		"image":"images/xiangxin.jpg",
+		"time":"2015年-2016年",
+		"posts":"前端开发应用工程师",
+		"reportto":"主管",
+		"peoples":"9",
+		"exp":"前端网页编写及应用开发"
+	},
+	{
+		"category":"2",
+		"name":"南充和胜网络有限公司",
+		"url":"http://www.ruiyantong.com/",
+		"image":"images/ruiyantong.png",
+		"time":"2016年-2017年",
+		"posts":"前端开发应用工程师",
+		"reportto":"主管",
+		"peoples":"5",
+		"exp":"前端网页编写及应用开发"
+	}
+]
