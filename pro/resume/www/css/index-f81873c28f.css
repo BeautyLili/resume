@@ -3129,18 +3129,12 @@ ul {
   padding: 0; }
 
 /*背景音乐*/
-.bggif {
-  width: 2.5rem;
-  height: 2.5rem;
+.bgmusic {
   position: absolute;
   right: 20px;
   top: 25px;
-  background: url(../images/bgmusic.gif) transparent no-repeat center center;
-  background-size: contain; }
-
-.bgmusic {
-  width: 1.6em;
-  height: 1.6em;
+  width: 2em;
+  height: 2em;
   border-radius: 50%;
   background: url(../images/normalmusic.svg) no-repeat;
   background-size: cover; }
@@ -3181,6 +3175,13 @@ ul {
 .basic_info {
   display: block;
   margin: 30px; }
+
+.circle p {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  float: right; }
 
 #scroller ul li {
   height: 70px;
@@ -3264,9 +3265,6 @@ ul {
   transition: background-position 1s;
   color: #fff; }
 
-.add {
-  text-align: right; }
-
 .content {
   display: none; }
 
@@ -3279,6 +3277,9 @@ ul {
   left: 0;
   width: 100%;
   overflow: hidden; }
+
+.me {
+  background: #000; }
 
 .me-photo {
   transform: rotate(-72deg); }
@@ -3326,6 +3327,7 @@ ul {
 .work {
   flex-direction: column;
   overflow: auto;
+  background: black;
   font-family: hanyi335;
   color: #fff; }
 
@@ -3356,7 +3358,8 @@ ul {
 .project {
   color: #fff;
   padding-top: 10px;
-  font-family: hanyi335; }
+  font-family: hanyi335;
+  background: #000; }
   .project .project-top {
     width: 17em;
     color: #000;

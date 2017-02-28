@@ -200,7 +200,7 @@ router.get('/project', function(req, res, next) {
 				"category":"购物网站",
 				"name":"邮乐",
 				"url":"http://www.ule.com",
-				"image":"images/youle.jpg",
+				"image":"../images/youle.jpg",
 				"description":"邮乐网是一个购物平台网，年销售额超过20亿",
 				"detail":"长期维护，功能迭代，性能优化，功能模块的增加和性能的优化",
 				"tech":"Html、Css2、Css3、Coldfusion等"
@@ -233,8 +233,8 @@ router.get('/me', function(req, res, next) {
 				"phone":"18380231149",
 				"E-mail":"1091440259@qq.com",
 				"birthday":"1994-12",
-				"weixin":"images/weixin.jpg",
-				"photo":"images/me.jpg"
+				"weixin":"../images/weixin.jpg",
+				"photo":"../images/me.jpg"
 			}]//end data4
 			insertData(db,"me",data4,function(results){
 				res.send(results);

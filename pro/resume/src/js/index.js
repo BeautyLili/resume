@@ -6,8 +6,47 @@ require('zepto-modules/form');
 require('zepto-modules/ie');
 require('zepto-modules/touch');
 module.exports = $;
-
-
+//引入微信模块
+var wx = require('./components/weixin/jweixin-1.0.0.js');
+ $.ajax({
+    url:"http://www.aliport.online/php/getsign.php",
+    method:"POST",
+    data:{url:window.location.href},
+    dataType:"json",
+    success:function(res){
+        wx.config({
+            debug: true,
+            appId: res.appId,
+            timestamp:res.timestamp,
+            nonceStr:res.nonceStr,
+            signature: res.signature,
+            jsApiList: [
+              'chooseImage','scanQRCode'
+            ]
+        });
+    }
+  })
+ $("#scan").on("tap",function(){
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+          var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+      }
+    });
+ })
+  $("#photo").on("tap",function(){
+     wx.scanQRCode({
+        needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+        scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+        success: function (res) {
+            var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+            alert(result);
+        }
+    });
+  })  
+  
 //判断是否首次登陆
 // if(localStorage.first){
 //   $(".swiper-container").hide();
@@ -38,21 +77,21 @@ var IScroll = require('./components/iscroll/iscroll.js');
 var isPassive = require('./components/iscroll/demoUtils.js');
 
 //ajax请求内容填充
- $.ajax({
-   type: 'GET',
-   url: 'http://localhost:3000/api/skill',
-   success: function(data) {
-     var html = "";
-     for (var i = 0; i < data.length; i++) {
-       html += "<li><p class='first'><img src='"+data[i].img+"'/></p>"
-                +"<p class='two'>"+"<span class='category hanyi335'>"+data[i].category+"</span>"
-                +"<span class='name'>"+data[i].name+"</span>"
-                +"</p>"
-       +"</li>";
-     };
-     $("#scroller ul").html(html);
-   }
- });
+ // $.ajax({
+ //   type: 'GET',
+ //   url: 'http://localhost:3000/api/skill',
+ //   success: function(data) {
+ //     var html = "";
+ //     for (var i = 0; i < data.length; i++) {
+ //       html += "<li><p class='first'><img src='"+data[i].img+"'/></p>"
+ //                +"<p class='two'>"+"<span class='category hanyi335'>"+data[i].category+"</span>"
+ //                +"<span class='name'>"+data[i].name+"</span>"
+ //                +"</p>"
+ //       +"</li>";
+ //     };
+ //     $("#scroller ul").html(html);
+ //   }
+ // });
  myScroll = new IScroll('#wrapper', { mouseWheel: true });
  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
@@ -80,39 +119,39 @@ $("#footer ul li").tap(function(){
 $(".content").eq(index).removeClass("hidden");
 $(".content").eq(index).addClass("show");
 
-   if(apiTarget == 'work'){
-     $.ajax({
-         type: 'GET',
-         url: 'http://localhost:3000/api/work',
-         success: function(data) {
-           var html = "";
-           for (var i = 0; i < data.length; i++) {
-              html += "<p class='line'></p><p class='work-category hanyi335 fff'>"+data[i].category+"</p>"+
-                      "<p class='school-logo'><img src='"+data[i].image+"'><p class='work-name hanyi335 fff'>"+
-                         "<span>"+data[i].time+"--</span>"+
-                         data[i].name+"</p></p>"+
-                         "<p class='work-time'>"+
-                          "<span>"+data[i].exp+"</span>"+
-                        "</p>"+
-                         "<p class='line'></p>";
-             }
+   // if(apiTarget == 'work'){
+   //   $.ajax({
+   //       type: 'GET',
+   //       url: 'http://localhost:3000/api/work',
+   //       success: function(data) {
+   //         var html = "";
+   //         for (var i = 0; i < data.length; i++) {
+   //            html += "<p class='line'></p><p class='work-category hanyi335 fff'>"+data[i].category+"</p>"+
+   //                    "<p class='school-logo'><img src='"+data[i].image+"'><p class='work-name hanyi335 fff'>"+
+   //                       "<span>"+data[i].time+"--</span>"+
+   //                       data[i].name+"</p></p>"+
+   //                       "<p class='work-time'>"+
+   //                        "<span>"+data[i].exp+"</span>"+
+   //                      "</p>"+
+   //                       "<p class='line'></p>";
+   //           }
               
-           $(".work").html(html);
-         }
-      });
-   }else if(apiTarget == 'project'){
-       $.ajax({
-         type: 'GET',
-         url: 'http://localhost:3000/api/project',
-         success: function(data) {
-           var html = "";
-           for (var i = 0; i < data.length; i++) {
-              html += "<div><p>category:"+data[i].category+"</p><p>name:"+data[i].name+"</p><p>url:"+data[i].url+"</p><p>description:"+data[i].description+"</p><p>work-detail:"+data[i].detail+"</p><p>work-tech:"+data[i].tech+"</p></div>";
-             }
-             $(".project .project-top").html(html);
-         }
-      });
-   }
+   //         $(".work").html(html);
+   //       }
+   //    });
+   // }else if(apiTarget == 'project'){
+   //     $.ajax({
+   //       type: 'GET',
+   //       url: 'http://localhost:3000/api/project',
+   //       success: function(data) {
+   //         var html = "";
+   //         for (var i = 0; i < data.length; i++) {
+   //            html += "<div><p>category:"+data[i].category+"</p><p>name:"+data[i].name+"</p><p>url:"+data[i].url+"</p><p>description:"+data[i].description+"</p><p>work-detail:"+data[i].detail+"</p><p>work-tech:"+data[i].tech+"</p></div>";
+   //           }
+   //           $(".project .project-top").html(html);
+   //       }
+   //    });
+   // }
   // $.ajax({
   //   type: 'GET',
   //   url: apiUrl,

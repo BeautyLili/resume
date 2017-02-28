@@ -54,12 +54,19 @@ ul{
 }
 
 /*背景音乐*/
-.bgmusic{
+.bggif{
+    width: 2.5rem;
+    height: 2.5rem;
     position: absolute;
     right: 20px;
     top: 25px;
-    width:2em;
-    height:2em;
+    background: url(../images/bgmusic.gif) transparent no-repeat center center;
+    background-size: contain;
+}
+.bgmusic{
+
+    width:1.6em;
+    height:1.6em;
     border-radius: 50%;
     background:url(../images/normalmusic.svg)no-repeat;
     background-size:cover;
@@ -75,8 +82,6 @@ ul{
 }
 /*导航图片，导航第一页*/
 .swiper-slide{
-    background: url(../images/stars.jpg);
-    background-size:cover;
     .title{
         position:releative;
     }
@@ -106,15 +111,6 @@ ul{
 .basic_info{
     display:block;
     margin:30px;
-}
-.circle{
-    p{
-        width:40px;
-        height:40px;
-        border-radius:50%;
-        border:2px solid #fff; 
-        float:right;
-    }
 }
 #scroller{
     ul{
@@ -219,7 +215,9 @@ ul{
     transition: background-position 1s;
     color:#fff;
 }
-
+.add{
+    text-align:right;
+}
 .content{
     display:none;
 }
@@ -235,9 +233,6 @@ ul{
 }
 
 //基本信息模块
-.me{
-    background:#000;
-}
 .me-photo{
     transform:rotate(-72deg);
     img{
@@ -293,7 +288,6 @@ ul{
 .work{
     flex-direction:column;
     overflow:auto;
-    background:rgb(0,0,0);
     font-family:hanyi335;
     color:#fff;
 }
@@ -326,7 +320,6 @@ ul{
     color:#fff;
     padding-top:10px;
     font-family:hanyi335;
-    background:#000;
     .project-top{
         width:17em;
         color:#000;

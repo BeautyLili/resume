@@ -3,7 +3,7 @@ var webserver = require('gulp-webserver');
 var url = require('url');
 var fs = require('fs');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
+var minifyCss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var webpack = require('gulp-webpack');
 var named = require('vinyl-named');
@@ -87,6 +87,11 @@ var jsFiles = ['src/js/index.js'];
 
 gulp.task('packjs',function(){
 	return gulp.src(jsFiles).pipe(named()).pipe(webpack()).pipe(uglify()).pipe(gulp.dest('./www/js'));
+});
+var cssFiles = ['src/css/index.css'];
+
+gulp.task('packcss',function(){
+	return gulp.src(cssFiles).pipe(named()).pipe(webpack()).pipe(minifyCss()).pipe(gulp.dest('./www/css'));
 });
 
 // 版本控制

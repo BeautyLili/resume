@@ -4,12 +4,8 @@ body {
     color:#000;
     margin: 0;
     padding: 0;
-}
-.swiper-container {
-
-    width:100%;
-    height:100%;
-    margin: 20px auto;
+     background: url(../images/stars.jpg);
+    background-size:cover;
 }
 .swiper-slide {
     text-align: center;

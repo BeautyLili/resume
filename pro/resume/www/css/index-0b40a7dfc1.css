@@ -2943,12 +2943,9 @@ body {
   font-size: 14px;
   color: #000;
   margin: 0;
-  padding: 0; }
-
-.swiper-container {
-  width: 100%;
-  height: 100%;
-  margin: 20px auto; }
+  padding: 0;
+  background: url(../images/stars.jpg);
+  background-size: cover; }
 
 .swiper-slide {
   text-align: center;
@@ -3132,12 +3129,18 @@ ul {
   padding: 0; }
 
 /*背景音乐*/
-.bgmusic {
+.bggif {
+  width: 2.5rem;
+  height: 2.5rem;
   position: absolute;
   right: 20px;
   top: 25px;
-  width: 2em;
-  height: 2em;
+  background: url(../images/bgmusic.gif) transparent no-repeat center center;
+  background-size: contain; }
+
+.bgmusic {
+  width: 1.6em;
+  height: 1.6em;
   border-radius: 50%;
   background: url(../images/normalmusic.svg) no-repeat;
   background-size: cover; }
@@ -3152,11 +3155,8 @@ ul {
   background-size: cover; }
 
 /*导航图片，导航第一页*/
-.swiper-slide {
-  background: url(../images/stars.jpg);
-  background-size: cover; }
-  .swiper-slide .title {
-    position: releative; }
+.swiper-slide .title {
+  position: releative; }
 
 .rarrow {
   position: absolute;
@@ -3181,13 +3181,6 @@ ul {
 .basic_info {
   display: block;
   margin: 30px; }
-
-.circle p {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  float: right; }
 
 #scroller ul li {
   height: 70px;
@@ -3271,6 +3264,9 @@ ul {
   transition: background-position 1s;
   color: #fff; }
 
+.add {
+  text-align: right; }
+
 .content {
   display: none; }
 
@@ -3283,9 +3279,6 @@ ul {
   left: 0;
   width: 100%;
   overflow: hidden; }
-
-.me {
-  background: #000; }
 
 .me-photo {
   transform: rotate(-72deg); }
@@ -3333,7 +3326,6 @@ ul {
 .work {
   flex-direction: column;
   overflow: auto;
-  background: black;
   font-family: hanyi335;
   color: #fff; }
 
@@ -3364,8 +3356,7 @@ ul {
 .project {
   color: #fff;
   padding-top: 10px;
-  font-family: hanyi335;
-  background: #000; }
+  font-family: hanyi335; }
   .project .project-top {
     width: 17em;
     color: #000;

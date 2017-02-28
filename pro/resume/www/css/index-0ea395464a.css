@@ -2980,6 +2980,9 @@ body {
 .roate {
   animation: rotating 1.2s linear infinite; }
 
+.roate1 {
+  animation: rotating 1.2s linear; }
+
 @keyframes rotating {
   0% {
     transform: rotate(0); }
@@ -3169,7 +3172,8 @@ ul {
   height: 4em;
   margin: 30px;
   background: url(../images/photo-png.png) no-repeat #fff;
-  background-size: 100% 100%; }
+  background-size: 100% 100%;
+  animation: rotating 1.2s linear; }
   .photoku .guid-photo {
     width: 4em;
     height: 4em;
@@ -3263,9 +3267,6 @@ ul {
   -moz-transition: background-position 1s;
   transition: background-position 1s;
   color: #fff; }
-
-.add {
-  text-align: right; }
 
 .content {
   display: none; }
