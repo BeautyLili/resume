@@ -1,0 +1,36 @@
+{
+	"index.html": {
+		"resources": [
+			"images/photo.jpg",
+			"images/photo-png.png",
+			"images/book.png",
+			"images/normalmusic.svg",
+			"images/stars.jpg",
+			"images/bgmusic.gif",
+			"images/button_bg.png",
+			"images/edu.png",
+			"resources/music/bg.mp3",
+			"css/index-0b40a7dfc1.css",
+			"resources/font/hanyi23.ttf",
+			"resources/font/iconfont.woff",
+			"resources/font/hanyi335.ttf",
+			"js/index.js",
+			"images/zepto.jpg",
+			"images/sass.jpg",
+			"images/swiper.jpg",
+			"images/angular.jpg",
+			"images/mongodb.jpg",
+			"images/easyui.jpg",
+			"images/sublime.jpg",
+			"images/nodejs.jpg",
+			"images/ps.jpg",
+			"images/jquery.jpg",
+			"css/index.css",
+			"images/project-png.png",
+			"images/xiangxin.jpg",
+			"images/line.png",
+			"images/ruiyantong.png",
+			"images/info.png"
+		]
+	}
+}
