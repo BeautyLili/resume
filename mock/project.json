@@ -1,0 +1,20 @@
+﻿[
+	{
+		"category":"购物网站",
+		"name":"邮乐",
+		"url":"http://www.ule.com",
+		"image":"images/youle.jpg",
+		"description":"邮乐网是一个购物平台网，年销售额超过20亿",
+		"detail":"长期维护，功能迭代，性能优化，功能模块的增加和性能的优化",
+		"tech":"Html、Css2、Css3、Coldfusion,php等"
+	},
+	{
+		"category":"企业网站",
+		"name":"宏图物流",
+		"url":"http://qiye7235448131.qiyeshangpu.com/",
+		"image":"images/youle.jpg",
+		"description":"宏图物流是成都一流物流公司",
+		"detail":"维护管理前端页面的编写，以及模块功能实现",
+		"tech":"HTML,数据库、javascript等等"
+	}
+]

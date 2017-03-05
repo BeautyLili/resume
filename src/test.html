@@ -1,0 +1,483 @@
+<html>
+<head>
+      <title>个人简历</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/index.css">
+      <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+      <link href="css/mui.min.css" rel="stylesheet"/>
+      <script src="js/jquery-1.11.0.js"></script>
+      <script src="js/mui.min.js"></script>
+      <script>
+            mui.init();
+            mui.plusReady(function(){
+            var slider = mui("#slider");
+                  slider.slider({
+                        interval:5000
+                  });
+                  mui.previewImage();
+            });
+            // 扩展API加载完毕后调用onPlusReady回调函数 
+            document.addEventListener( "plusready", onPlusReady, false );
+            
+            // 扩展API加载完毕，现在可以正常调用扩展API
+            function onPlusReady(){
+                  startPlay();
+            }
+            // 从相册中选择图片 
+            function galleryImg() {
+                  // 从相册中选择图片
+                  console.log("从相册中选择图片:");
+                plus.gallery.pick( function(path){
+                  console.log(path);
+                }, function ( e ) {
+                  console.log( "取消选择图片" );
+                }, {filter:"image"} );
+            }
+            
+            //扫一扫
+            var scanbtn = document.getElementsByClassName("scanbtn")[0];
+            function show(){
+                  var scanbox = document.getElementsByClassName("scanbox")[0];
+                  scanbox.style.display = 'block';
+                  scanbox.style.backgroundColor="#000000";
+                  startRecognize();
+            }
+            var scan = null;
+            
+            function onmarked( type, result ) {
+                  var text = '未知: ';
+                  switch(type){
+                        case plus.barcode.QR:
+                        text = 'QR: ';
+                        break;
+                        case plus.barcode.EAN13:
+                        text = 'EAN13: ';
+                        break;
+                        case plus.barcode.EAN8:
+                        text = 'EAN8: ';
+                        break;
+                  }
+                  alert( text+result );
+                  var scanbox = document.getElementsByClassName("scanbox")[0];
+                  scanbox.style.display = 'none';
+                  scan.close();
+            }
+            function startRecognize() {
+                  scan = new plus.barcode.Barcode('bcid');
+                  scan.onmarked = onmarked; 
+                  startScan();
+            }
+            function startScan() {
+                  scan.start();
+            }
+            function cancelScan() {
+                  scan.cancel();
+            }
+            function closeScan(){
+                  scan.close();
+            }
+            function setFlash() {
+                  scan.setFlash();
+            }
+            function sotpscan(){
+                  scan.close();
+                  var scanbox = document.getElementsByClassName("scanbox")[0];
+                  scanbox.style.display = 'none';
+            }
+            
+            //音乐播放
+            var p = null; 
+            function startPlay() {
+                  if ( plus.audio == undefined ) {
+                        alert( "Device not ready!" );
+                  }
+                  p = plus.audio.createPlayer( "resources/music/bg.mp3" );
+                  p.play( function () {
+                  }, function ( e ) {
+                        alert( "Audio play error: " + e.message ); 
+                                    } ); 
+                  }
+            function stopPlay() {
+                  p.stop();
+            }
+                        
+            
+            
+
+      </script>
+      
+
+</head>
+<body>
+      <!-- Swiper -->
+      <div class="swiper-container"> 
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                        <div class="bggif">
+                              <div class="bgmusic roate" onclick="stopPlay()">
+                                    <!--<audio loop="" id="audio" src="resources/music/bg.mp3" preload="auto" autoplay=true></audio>-->
+                              </div>
+                         </div>
+                        
+                        <div class="title1">
+                              <div class="ani em2 fff hanyi335" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">2017</div>
+                              <p class="hanyi335 ani em25"  swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                                    <span>个</span>
+                              </p>
+                              <p class="hanyi335 ani em25"  swiper-animate-effect="slideInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                                    <span>人</span>
+                              </p>
+                              <p class="hanyi335 ani em25"  swiper-animate-effect="slideInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0s">
+                                    <span>简</span>
+                              </p>
+                              <p class="hanyi335 ani em25"  swiper-animate-effect="slideInRight" swiper-animate-duration="1s" swiper-animate-delay="0.2s">
+                                    <span>历</span>
+                              </p>
+                              <p class="rarrow ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="2.2s" style="animation-iteration-count: infinite;" ><i class="iconfont icon-iconfontxiangyou em2 fff" ></i></p>
+                              <div class="ani hanyi335 em1" swiper-animate-effect="zoomInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s">Apply For A Job</div>
+                              </div>
+                  </div>
+                  <div class="swiper-slide">
+                        <div class="bggif">
+                              <div class="bgmusic roate">
+                              </div>
+                         </div>
+                        <div class="photoku ani" swiper-animate-effect="fadeIn" swiper-animate-durationi="0.7" swiper-animate-delay="0.2">
+                              <div class="guid-photo ani" swiper-animate-effect="rotateIn" swiper-animate-duration="2s" swiper-animate-delay="0.4s" >
+                              </div>
+                        </div>
+                        <div class="basic_info hanyi335 fff">
+                              <!-- 基本信息 -->
+                              <p class="hanyi23 ani fff" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.4s">基本信息
+                              </p>
+                              <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.2s" style="border-bottom:2px solid #fff;height:5px;width:30%"></p>
+                              <p class="rarrow ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="2.2s" style="animation-iteration-count: infinite;" ><i class="iconfont icon-iconfontxiangyou em2 fff" ></i></p>      
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.1s">求职岗位：前端开发应用工程师  </p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1.2s" swiper-animate-delay="0.2s">姓名:向丽</p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="2s" swiper-animate-delay="0s">性别:女</p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1.2s" swiper-animate-delay="0.4s">年龄:23</p>
+                              <!-- 基本技能 -->
+                              <p class="fff hanyi335 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.4s">基本技能</p>
+                              <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" style="border-bottom:2px solid #fff;height:5px;width:40%"></p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInRight" swiper-animate-duration="2s" swiper-animate-delay="0.2s">H4,H5,C3,C2,Commonjs</p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0.2s">jquery,Bootstrap,Swiper,Iscroll,Jeasyui</p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="slideInRight" swiper-animate-duration="2s" swiper-animate-delay="0.2s">Angular,Express,Nodejs,PhP等</p>
+                              <!--  -->
+                              <p class="fff hanyi335 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.4s">****</p>
+                              <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" style="border-bottom:2px solid #fff;height:5px;width:50%"></p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="3s" swiper-animate-delay="0.6s">学习中寻找快乐</p>
+                              <p class="fff hanyi335 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="3s" swiper-animate-delay="0.6s">工作中寻找安心</p>
+                        </div>
+                  </div>
+                  <div class="swiper-slide" style="flex-direction:column;">
+                        <div class="bggif">
+                              <div class="bgmusic roate">
+                              </div>
+                        </div>
+                        <div class="ani shuizhu1"  swiper-animate-effect="fadeInUp" swiper-animate-duration="5s" swiper-animate-delay="0.1s" style="animation-iteration-count:infinite;"></div>
+                        <div class="ani shuizhu2"  swiper-animate-effect="fadeInUp" swiper-animate-duration="5s" swiper-animate-delay="0.3s" style="animation-iteration-count:infinite;"></div>
+                              <div class="ani shuizhu3"  swiper-animate-effect="fadeInUp" swiper-animate-duration="5s" swiper-animate-delay="0.5s" style="animation-iteration-count:infinite;"></div>
+                              <div class="ani shuizhu4"  swiper-animate-effect="fadeInUp" swiper-animate-duration="5s" swiper-animate-delay="0.7s" style="animation-iteration-count:infinite;"></div>
+                              <div style="margin-top:10px">
+                                     <div id="enterbtn">
+                                    <a href="#" class="button gray">点击进入</a>
+                                    </div>
+                              </div>      
+                  </div>
+            </div>
+      </div>
+    
+      
+      <!-- main -->
+      <div id="main" style="display:none">
+            <header class="mui-bar mui-bar-nav">
+                  <div id="header">
+                        <div class="photo">
+                              <a href="javascript:void(0)" class="button" id="photo" onclick="galleryImg()"  style="padding:4px 12px"><i class="iconfont icon-xiangji1"></i></a>
+                        </div>
+                        <div class="top-title center">
+                              Resume
+                        </div>
+                        <div class="add"> 
+                              <a href="javascript:void(0)" class="button scanbtn" onclick="show()" id="scan" style="padding:4px 12px"><i class="iconfont icon-saoyisao"></i></a>
+                        </div>
+                  </div>
+            </header>
+            <div class="scanbox" style="display:none"> 
+                  <div id="bcid">
+
+                  </div>
+                  <div class="scanfooter">
+                        <div class="fbt" onclick="sotpscan()">取　消</div>
+                        <div id="btCancel" class="fbt" onclick="cancelScan()">暂　停</div>
+                  </div>
+            </div>
+            <nav class="mui-bar mui-bar-tab footer-bar">
+                  <a class="mui-tab-item mui-active" href="#tabbar" id="skill1">
+                        <span class="mui-icon iconfont icon-jineng"></span>
+                        <span class="mui-tab-label">技能</span>
+                  </a>
+                  <a class="mui-tab-item" href="#tabbar-with-chat" id="work1">
+                        <span class=" mui-icon iconfont icon-jiaoyujingli"></span>
+                        <span class="mui-tab-label">经历</span>
+                  </a>
+                  <a class="mui-tab-item" href="#tabbar-with-contact" id="project1">
+                        <span class=" mui-icon iconfont icon-xiangmu"></span>
+                        <span class="mui-tab-label">项目</span>
+                  </a>
+                  <a class="mui-tab-item" href="#tabbar-with-map" id="me1">
+                        <span class=" mui-icon iconfont icon-wode"></span>
+                        <span class="mui-tab-label">我</span>
+                  </a>
+            </nav>
+            <div class="mui-content">
+                  <!--第一页面-->
+                  <div id="tabbar" class="mui-control-content mui-active">
+                        <ul class="mui-table-view first-box" style='background:url(images/b7.png)'>
+                              
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/h5.jpg'>
+                                          <div class='mui-media-body'>规范
+                                                <p class='mui-ellipsis'>内容:HTML4、HTML5、ES5、ES6、W3C、C2、C3、CommonJS、CMD、AMD等</p>
+                                                <p class='mui-ellipsis'>程度:了解&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/jquery.jpg'>
+                                          <div class='mui-media-body'>框架
+                                                <p class='mui-ellipsis'>内容:Jquery、Bootstrap、Express、Zepto、AngularJs、Recat、Avalon等等</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/easyui.jpg'>
+                                          <div class='mui-media-body'>UI框架
+                                                <p class='mui-ellipsis'>Jqueryeasyui、Mui、Yo、Ionic等</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:1年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/swiper.jpg'>
+                                          <div class='mui-media-body'>类库
+                                                <p class='mui-ellipsis'>Swiper、Iscroll等</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:1年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/zepto.jpg'>
+                                          <div class='mui-media-body'>插件
+                                                <p class='mui-ellipsis'>Jquery menu plugin、Jquery nav plugin、zepto emoji-expression-plugin</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:1年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/sass.jpg'>
+                                          <div class='mui-media-body'>布局
+                                                <p class='mui-ellipsis'>Fixed、Fulid、Flex、Responsive、SASS</p>
+                                                <p class='mui-ellipsis'>程度:精通&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/angular.jpg'>
+                                          <div class='mui-media-body'>程序
+                                                <p class='mui-ellipsis'>Javascript原生、Jquery及Zepto插件、AngularJs等</p>
+                                                <p class='mui-ellipsis'>程度:精通&nbsp;&nbsp;时长:1年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/mongodb.jpg'>
+                                          <div class='mui-media-body'>数据库
+                                                <p class='mui-ellipsis'>掌握Websql、mongodb、indexeddb等</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/nodejs.jpg'>
+                                          <div class='mui-media-body'>后台
+                                                <p class='mui-ellipsis'>熟悉后台开发的数据库相关内容、PHP、Nodejs</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/sublime.jpg'>
+                                          <div class='mui-media-body'>工具
+                                                <p class='mui-ellipsis'>sublime、gulp、webpack、fekit</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                              <li class='mui-table-view-cell mui-media'>
+                                    <a href='javascript:;'>
+                                          <img class='mui-media-object mui-pull-left' src='images/ps.jpg'>
+                                          <div class='mui-media-body'>辅助软件
+                                                <p class='mui-ellipsis'>xMind、PS、Axure等</p>
+                                                <p class='mui-ellipsis'>程度:熟悉&nbsp;&nbsp;时长:2年</p>
+                                          </div>
+                                    </a>
+                              </li>
+                        </ul>
+                  </div>
+                  <!--第二个页面-->
+                  <div id="tabbar-with-chat" class="mui-control-content" style="background: url(images/b1.png);">
+                              
+                        <div id="slider" class="mui-slider" style="height:222px" >
+                              <div class="mui-slider-group mui-slider-loop">
+                                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                                    <div class="mui-slider-item mui-slider-item-duplicate">
+                                          <a href="#">
+                                                <img src="images/pic1.jpg">
+                                          </a>
+                                    </div>
+                                    <!-- 第一张 -->
+                                    <div class="mui-slider-item">
+                                          <a href="#">
+                                                <img src="images/1.jpg">
+                                          </a>
+                                    </div>
+                                    <!-- 第二张 -->
+                                    <div class="mui-slider-item">
+                                          <a href="#">
+                                                <img src="images/4.jpg">
+                                          </a>
+                                    </div>
+                                    <!-- 第三张 -->
+                                    <div class="mui-slider-item">
+                                          <a href="#">
+                                                <img src="images/6.jpg">
+                                          </a>
+                                    </div>
+                                    <!-- 第四张 -->
+                                    <div class="mui-slider-item">
+                                          <a href="#">
+                                                <img src="images/7.jpg">
+                                          </a>
+                                    </div>
+                                    <div class="mui-slider-item">
+                                          <a href="#">
+                                                <img src="images/8.jpg">
+                                          </a>
+                                    </div>
+                                    <div class="mui-slider-item">
+                                          <a href="#">
+                                                <img src="images/pic1.jpg">
+                                          </a>
+                                    </div>
+                                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                                    <div class="mui-slider-item mui-slider-item-duplicate">
+                                          <a href="#">
+                                                <img src="images/1.jpg">
+                                          </a>
+                                    </div>
+                              </div>
+                              <div class="mui-slider-indicator">
+                                    <div class="mui-indicator mui-active"></div>
+                                    <div class="mui-indicator "></div>
+                                    <div class="mui-indicator"></div>
+                                    <div class="mui-indicator"></div>
+                                    <div class="mui-indicator"></div>
+                                    <div class="mui-indicator"></div>
+                              </div>
+                        </div>
+                        <!--卡图-->
+                        <div class="mui-card" style="margin-top:20px">
+                              <div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(images/2.jpg);background-size:100% 100%;background-repeat:no-repeat"></div>
+                              <div class="mui-card-content">
+                                    <div class="mui-card-content-inner">
+                                          <p>2011年至2015年间在四川理工学院深造学习</p>
+                                          <p style="color: #333;">在校期间所修学科为计算机科学与技术，学习了大量的有关编程的知识包括C,C++,C#,JAVA,数据库、汇编、linux系统编程等等</p>
+                                    </div>
+                              </div>
+                              <div class="mui-card-footer">
+                                    <a class="mui-card-link">links:</a>
+                                    <a class="mui-card-link" href="http://www.suse.edu.cn/">http://www.suse.edu.cn/</a>
+                              </div>
+                        </div>
+                        <div class="mui-card" style="margin-top:20px">
+                              <div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(images/pic2.jpg);background-size:100% 100%;background-repeat:no-repeat"></div>
+                              <div class="mui-card-content">
+                                    <div class="mui-card-content-inner">
+                                          <p>2015年至2017年间在宏图物流公司工作</p>
+                                          <p style="color: #333;">本人在该公司工作期间任职职位为前端开发应用工程师，该公司文化气息浓厚，同事间团结友爱，互帮互助,个人的专业的能力也得到了很大提升</p>
+                                    </div>
+                              </div>
+                              <div class="mui-card-footer">
+                                    <a class="mui-card-link">links:</a>
+                                    <a class="mui-card-link" href="http://qiye7235448131.qiyeshangpu.com/">http://qiye7235448131.qiyeshangpu.com/</a>
+                              </div>
+                        </div>
+                  </div>
+                  <!--第三个页面-->
+                  <div id="tabbar-with-contact" class="mui-control-content three-box" >
+                        <div class="mui-content" style="background: url(images/b4.png);">
+                              <div class="mui-content-padded" style="margin:0;padding:10px">
+                                    <p>这是一个电商购物平台，在该项目中我主要负责了主页模块，商品详情模块，登录注册模块，商品列表模块，购物车模块的编写与维护</p>
+                                    <p>
+                                          <img src="images/youle1.png" data-preview-src="" data-preview-group="1" />
+                                    </p>
+                                    <p>这是一个首页页面，用到的技术有templates模板引擎，ajax请求，轮播图等等</p>
+                                    <p>
+                                          <img src="images/youle3.png"  data-preview-src="" data-preview-group="1" />
+                                    </p>
+                                    <p>这是一个商品里列表页面，采用固定布局方式，用到原生js,模板引擎templates和异步请求，jquery，cookies和load加载等等</p>
+                                    <p>
+                                          <img src="images/youle2.png"  data-preview-src="" data-preview-group="1" />
+                                    </p>
+                                    <p>这是登录页面，背景采用淡入淡出式轮播,客户端post提交表单验证，服务端作判断</p>
+                                    <p>
+                                          <img src="images/houtai1.png"  data-preview-src="" data-preview-group="1" />
+                                    </p>
+                                    <p>业余空闲时学学知识，这是采用angularjs模块开发做的后台练习,用bootstrap，ng-grid布局，用路由控制页面跳转用anjular实现数据双向绑定，filter过滤筛选</p>
+                              </div>
+                        </div>
+                  </div>
+                  <!--第四个页面-->
+                  <div id="tabbar-with-map" class="mui-control-content">
+                        <ul class="mui-table-view" style='background:url(images/b3.png)'>
+                              <li class="mui-table-view-cell center"><img src="images/photo.jpg" class="photos"/>
+                              <li class="mui-table-view-cell"><span>姓名:</span><span>向丽</span></li>
+                            <li class="mui-table-view-cell"><span>性别<i class="iconfont icon-nv"></i></span><span>女</span></span></li>
+                            <li class="mui-table-view-cell"><span>年龄:</span><span>23</span></li>
+                             <li class="mui-table-view-cell"><span>生肖:<i class="iconfont icon-shengri-copy"></i></span><span>狗</span></li>
+                            <li class="mui-table-view-cell"><span>高中:</span><span>桂花中学</span></li>
+                            <li class="mui-table-view-cell"><span>大学:</span><span>四川理工学院</span></li>
+                            <li class="mui-table-view-cell"><span>专业:</span><span>计算机学院计算机科学与技术</span></li>
+                             <li class="mui-table-view-cell"><span>所修学科:</span><span>c,c++,c#,mysql,os,数据机构，计算机组成与原理，程序设计，软件工程，数据库系统</span></li>
+                               <li class="mui-table-view-cell"><span>专业兴趣技能<i class="iconfont icon-tongaihao"></i></span><span>前端应用开发，H4，H5，C2，C3，JS，jquery,angular,nodejs,bootstrap,mui,ionic等</span></li>
+                              <li class="mui-table-view-cell"><span>业余兴趣爱好<i class="iconfont icon-tongaihao"></i></span><span>旅游，追剧，唱歌</span></li>
+                              <li class="mui-table-view-cell center"><span>扫一扫联系我</span></li>
+                              <li class="mui-table-view-cell center"><img src="images/weixin.jpg" class="weixin"/></li>
+                        </ul>
+                  </div>
+            </div>
+      </div>
+
+      <script src="js/mui.previewimage.js"></script>
+      <script src="js/mui.zoom.js"></script>
+      <script type="text/javascript"  src="js/main.js"></script>
+      <script type="text/javascript"  src="js/index.js"></script>
+      
+</body>
+</html>
